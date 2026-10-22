@@ -24,8 +24,10 @@ class AuthActivity : AppCompatActivity() {
             insets
         }
 
+        // SharedPreferences untuk status sesi login
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
+        // Cek jika user sudah login
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
             val intent = Intent(this@AuthActivity, BaseActivity::class.java)
@@ -33,11 +35,32 @@ class AuthActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.btnLogin.setOnClickListener {
-            val username = binding.etUsername.text.toString()
-            val password = binding.etPassword.text.toString()
+        // SharedPreferences tempat penyimpanan data registrasi
+        val userPref = getSharedPreferences("UserPref", MODE_PRIVATE)
 
-            if (username.isNotEmpty() && username == password) {
+        // Auto-fill Username dari registrasi (jika ada)
+        val registeredUsername = userPref.getString("USERNAME", "")
+        if (!registeredUsername.isNullOrEmpty()) {
+            binding.etUsername.setText(registeredUsername)
+        }
+
+        // Logika Tombol Login sesuai Rule Soal 2
+        binding.btnLogin.setOnClickListener {
+            val username = binding.etUsername.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
+
+            // Ambil username & password tersimpan di SharedPreferences
+            val savedUsername = userPref.getString("USERNAME", "")
+            val savedPassword = userPref.getString("PASSWORD", "")
+
+            // Rule 1: username == password
+            val rule1 = username.isNotEmpty() && username == password
+
+            // Rule 2: username == username di SharedPreferences AND password == password di SharedPreferences
+            val rule2 = username.isNotEmpty() && username == savedUsername && password == savedPassword
+
+            // Jika memenuhi salah satu rule, izinkan masuk
+            if (rule1 || rule2) {
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLogin", true)
                 editor.putString("username", username)
@@ -49,10 +72,16 @@ class AuthActivity : AppCompatActivity() {
             } else {
                 AlertDialog.Builder(this)
                     .setTitle("Peringatan")
-                    .setMessage("Silahkan coba lagi")
+                    .setMessage("Username atau password salah. Silahkan coba lagi")
                     .setPositiveButton("OK", null)
                     .show()
             }
+        }
+
+        // Navigasi ke halaman Register
+        binding.btnRegister.setOnClickListener {
+            val intent = Intent(this@AuthActivity, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }
