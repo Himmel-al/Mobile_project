@@ -36,47 +36,6 @@ class HomeFragment : Fragment() {
             title = "Home"
         }
 
-        binding.btnToFourth.setOnClickListener {
-            val i = Intent(requireContext(), FourthActivity::class.java)
 
-            i.putExtra("name", "Politeknik Caltex Riau")
-            i.putExtra("from", "Rumbai")
-            i.putExtra("age", 25)
-            startActivity(i)
-        }
-
-        binding.btnToFifth.setOnClickListener {
-            val i = Intent(requireContext(), FifthActivity::class.java)
-            startActivity(i)
-        }
-
-        binding.btnLogout.setOnClickListener {
-            AlertDialog.Builder(requireContext())
-                .setTitle("Konfirmasi Logout")
-                .setMessage("Apakah Anda yakin ingin keluar?")
-                .setPositiveButton("Ya") { dialog, _ ->
-                    val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
-                    val editor = sharedPref.edit()
-                    editor.clear()
-                    editor.apply()
-
-                    dialog.dismiss()
-                    val intent = Intent(requireContext(), AuthActivity::class.java)
-                    startActivity(intent)
-                    requireActivity().finish()
-                }
-                .setNegativeButton("Tidak", null)
-                .show()
-        }
-
-        binding.btnProfile.setOnClickListener {
-            val i = Intent(requireContext(), ProfileActivity::class.java)
-            startActivity(i)
-        }
-
-        binding.btnToSeven.setOnClickListener {
-            val i = Intent(requireContext(), SevenActivity::class.java)
-            startActivity(i)
-        }
     }
 }
