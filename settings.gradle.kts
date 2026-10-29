@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Netptunus_HAFIZ"
+rootProject.name = "Snack_HAFIZ"
 include(":app")
  
