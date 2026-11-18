@@ -31,11 +31,12 @@ class SplashScreenActivity : AppCompatActivity() {
 
             val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
             val isLogin = sharedPref.getBoolean("isLogin", false)
+            val isOnboardingCompleted = sharedPref.getBoolean("isOnboardingCompleted", false)
 
-            val intent = if (isLogin) {
-                Intent(this@SplashScreenActivity, BaseActivity::class.java)
-            } else {
-                Intent(this@SplashScreenActivity, AuthActivity::class.java)
+            val intent = when {
+                isLogin -> Intent(this@SplashScreenActivity, BaseActivity::class.java)
+                !isOnboardingCompleted -> Intent(this@SplashScreenActivity, OnboardingActivity::class.java)
+                else -> Intent(this@SplashScreenActivity, AuthActivity::class.java)
             }
             startActivity(intent)
             finish()

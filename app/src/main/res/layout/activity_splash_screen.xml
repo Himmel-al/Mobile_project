@@ -10,13 +10,16 @@
 
     <ImageView
         android:id="@+id/imgLogoSplash"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="88dp"
+        android:layout_width="236dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/circle_bg"
+        android:clipToOutline="true"
         android:contentDescription="Logo App"
-        android:src="@drawable/snack"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="256dp"
-        android:text="Netptunus HAFIZ App"
+        android:text="SIPP"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -45,5 +48,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="292dp"
+        android:text="Sistem Informasi Pemesanan Perabotan"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

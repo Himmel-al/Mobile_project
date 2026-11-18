@@ -1,6 +1,8 @@
 package com.example.netptunus_hafiz.domain;
 
-public class PopularDomain {
+import java.io.Serializable;
+
+public class PopularDomain implements Serializable {
     private String title;
     private String description;
     private String picUrl;
