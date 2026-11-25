@@ -261,6 +261,40 @@
                     app:strokeColor="@color/hijau" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"
+                android:text="Supabase BaaS Features"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToProductCrud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:text="CRUD Produk"
+                    android:backgroundTint="@color/hijau" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToNoteCrud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:text="CRUD Catatan"
+                    android:backgroundTint="@color/hijau" />
+            </LinearLayout>
+
             <!-- Hidden buttons for compatibility -->
             <Button
                 android:id="@+id/btnProfile"

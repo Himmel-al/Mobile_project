@@ -13,6 +13,8 @@ import com.example.netptunus_hafiz.AuthActivity
 import com.example.netptunus_hafiz.Home.pertemuan_4.FourthActivity
 import com.example.netptunus_hafiz.Home.pertemuan_5.FifthActivity
 import com.example.netptunus_hafiz.Home.pertemuan_7.SevenActivity
+import com.example.netptunus_hafiz.NoteActivity
+import com.example.netptunus_hafiz.ProductActivity
 import com.example.netptunus_hafiz.ProfileActivity
 import com.example.netptunus_hafiz.databinding.FragmentMoreBinding
 
@@ -66,6 +68,16 @@ class MoreFragment : Fragment() {
 
         binding.btnToSeven.setOnClickListener {
             val intent = Intent(requireContext(), SevenActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToProductCrud.setOnClickListener {
+            val intent = Intent(requireContext(), ProductActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToNoteCrud.setOnClickListener {
+            val intent = Intent(requireContext(), NoteActivity::class.java)
             startActivity(intent)
         }
     }
